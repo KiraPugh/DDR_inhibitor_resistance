@@ -1,6 +1,6 @@
 # DDR_inhibitor_resistance
 
-The code base is an extension of Hamis et al. "Targeting Cellular DNA Damage Responses in Cancer: An In Vitro-Calibrated Agent-Based Model Simulating Monolayer and Spheroid Treatment Responses to ATR-Inhibiting Drugs." Bull Math Biol. 2021 Aug 30;83(10):103. doi: https://doi.org/10.1007/s11538-021-00935-y (GitHub reposiory: SJHamis/DDRinhibitors).
+The code base is an extension of Hamis et al. "Targeting Cellular DNA Damage Responses in Cancer: An In Vitro-Calibrated Agent-Based Model Simulating Monolayer and Spheroid Treatment Responses to ATR-Inhibiting Drugs." Bull Math Biol. 2021 Aug 30;83(10):103. doi: https://doi.org/10.1007/s11538-021-00935-y (GitHub reposiory: https://github.com/SJHamis/DDRinhibitors).
 
 
 The codes in this repository are used to produce the in silico results using a cell crowding ABM which is implemented in C/C++. The file "main_update" is the main file where all model parameters can be modified. The remaining files are header files:
