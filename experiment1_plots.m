@@ -1,13 +1,13 @@
 %% 1. IMPORT THE DATA
 
 % Define the parameters
-DRfrac_values = [10, 30];
-DRtype = 3;
-DoseC_values = [0, 30, 100];
-DoseO_values = [0, 20, 100];
+DRfrac_values = [10, 30]; %% 10% or 30% drug resistant fraction
+DRtype = 3; %% drug resistant type (1=ATRi, 2=PARPi, 3=ATRi+PARPi)
+DoseC_values = [0, 30, 100]; %% doses of the ATRi
+DoseO_values = [0, 20, 100]; %% doses of the PARPi
 numClusters_values = [419, 32, 1]; % For single-cell clusters, multi-cell clusters, and monoclusters
-numRuns = 100;
-rowsPerRun = 311;
+numRuns = 100; %how many times we run the in silico simulations
+rowsPerRun = 311; % how many rows in each run
 
 % Create the cell arrays to hold the data
 combres_cells = struct();
@@ -18,7 +18,7 @@ for DRfrac = DRfrac_values
         for DoseC = DoseC_values
             for DoseO = DoseO_values
                 
-                % Skip the combination where DoseC = 30, DoseO = 100, and numClusters = 419
+                % Skip these drug combinations:
                 
                 if (numClusters == 419 || numClusters == 32 || numClusters == 1) && ...
                         (DoseC == 30 && DoseO == 100 || DoseC == 100 && DoseO == 20)
@@ -29,7 +29,6 @@ for DRfrac = DRfrac_values
                 % Construct the file name
                 fileName = sprintf('oct_B_mu41000_sigma8200_DoseC%d_DoseO%d_NoCircles%d_DRfrac%d_DRtype%d', ...
                     DoseC, DoseO, numClusters, DRfrac, DRtype);
-                %%%combres_10s_dmso_cells = cell(numRuns, 1);
                 
                 
                 % Generate the field name string based on the parameters
@@ -90,7 +89,6 @@ for DRfrac = DRfrac_values
                 % Plotting
                 figure;
                 
-                % Ensure 'time' is properly defined
                 time = [0:1:310]';
                 
                 % Plot the mean and standard deviation
@@ -101,18 +99,16 @@ for DRfrac = DRfrac_values
                 hold on;
                 
                 h = area(time, [dataCell_mean, dataCell_mean2], 'LineWidth', 1.5);
-    
-    set(h(1), 'FaceColor', [153/255, 142/255, 195/255]); 
-    set(h(2), 'FaceColor', [241/255, 163/255, 64/255]);
-    
-    fill_area = fill([time; flipud(time)], [dataCell_mean + dataCell_std; flipud(dataCell_mean + dataCell_std)], 'w');
-    set(fill_area, 'EdgeColor', 'none'); % Remove the line on the fill area
-    alpha(fill_area, 0.3); % Adjust the alpha value here
-    
-                %plot(time, dataCell_mean, 'LineWidth', 1.5, 'Color', [0 0 1]); % Mean plot
+                
+                set(h(1), 'FaceColor', [153/255, 142/255, 195/255]);
+                set(h(2), 'FaceColor', [241/255, 163/255, 64/255]);
+                
+                fill_area = fill([time; flipud(time)], [dataCell_mean + dataCell_std; flipud(dataCell_mean + dataCell_std)], 'w');
+                set(fill_area, 'EdgeColor', 'none'); % Remove the line on the fill area
+                alpha(fill_area, 0.3); % Adjust the alpha value here
+                
                 plot(time, dataCell_mean + dataCell_std, 'k--', 'LineWidth', 1); % Mean + std plot
                 plot(time, dataCell_mean - dataCell_std, 'k--', 'LineWidth', 1); % Mean - std plot
-                
                 
                 % Add labels, title, etc.
                 xlabel('Time (hours)');
@@ -128,15 +124,7 @@ for DRfrac = DRfrac_values
                 
                 hold off;
                 
-                
-                
-                
             end
         end
     end
 end
-
-
-
-
-
