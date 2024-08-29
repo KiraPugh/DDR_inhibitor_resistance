@@ -7,7 +7,7 @@ DoseC_values = [0, 30, 100]; %% doses of the ATRi
 DoseO_values = [0, 20, 100]; %% doses of the PARPi
 numClusters_values = [419, 32, 1]; % For single-cell clusters, multi-cell clusters, and monoclusters
 numRuns = 100; %how many times we run the in silico simulations
-rowsPerRun = 311; % how many rows in each run
+rowsPerRun = 311; % how many rows in each run (we save for every hour between 0-310 hours)
 
 % Create the cell arrays to hold the data
 combres_cells = struct();
@@ -19,7 +19,6 @@ for DRfrac = DRfrac_values
             for DoseO = DoseO_values
                 
                 % Skip these drug combinations:
-                
                 if (numClusters == 419 || numClusters == 32 || numClusters == 1) && ...
                         (DoseC == 30 && DoseO == 100 || DoseC == 100 && DoseO == 20)
                     continue; % Skip this iteration
@@ -47,7 +46,6 @@ for DRfrac = DRfrac_values
                 fieldName_mean = sprintf('combres_mean_%d_%d_%dc_%do', DRfrac, numClusters, DoseC, DoseO);
                 fieldName_std = sprintf('combres_std_%d_%d_%dc_%do', DRfrac, numClusters, DoseC, DoseO);
                 
-                % Create the cell array and assign it to the base workspace
                 % Create the cell array and assign it to the base workspace
                 dataCell = cell(numRuns, 1);
                 dataCell2 = cell(numRuns, 1);
@@ -86,7 +84,6 @@ for DRfrac = DRfrac_values
                 assignin('base', fieldName_std, dataCell_std);
                 
                 
-                % Plotting
                 figure;
                 
                 time = [0:1:310]';
