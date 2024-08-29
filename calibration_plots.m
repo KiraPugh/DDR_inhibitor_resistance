@@ -19,12 +19,10 @@ combres_10s_comb_1_1 = readtable('oct_B_mu41000_sigma8200_DoseC100_DoseO100_NoCi
 %% 2. SORT OUT THE INDIVIDUAL RUNS OF THE DATA
 
 % Define the number of runs and the number of rows per run
-numRuns = 3;
+numRuns = 100;
 rowsPerRun = 311;
 
 
-%% Comb Res 
-% List of variable names
 % List of variable names
 varNames = {'dmso', 'cera_01', 'cera_03', 'cera_1', 'ola_02', 'ola_1', ...
             'comb_01_1', 'comb_03_02', 'comb_03_1', 'comb_1_02', 'comb_1_1'};
