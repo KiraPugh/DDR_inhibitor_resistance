@@ -24,3 +24,11 @@ To vary these 6 items in the C++ code, change the values of the following parame
 3. DR_type indicates which drug(s) the drug-resistant cells are resistant to (a value of 1, 2, 3 is drug 1, drug 2, and both drugs 1 and 2 resistance respectively).
 4. drug_dose_ATRi and drug_dose_PARPi are the doses of drug 1 and drug 2 respectively, in micromole.
 5. mu_in and mu_DR_in are the mean doubling times of the drug-sensitive and drug-resistant cells respectively.
+
+Plotting the figures in the manuscript
+- Fig. 1b: ODE_calibration
+- Fig. 1d: ABM_calibration
+- Figs. 3-5: plot_experiment1
+- Fig. 6: plot_experiment2
+- Fig. 7: plot_experiment3
+Note that the latter 3 matlab codes also include plots for the dynamic drug-resistant fraction and total cell count over 310 hours.
