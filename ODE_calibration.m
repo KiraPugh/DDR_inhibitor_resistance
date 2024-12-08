@@ -21,14 +21,6 @@ for i = 1:numel(ATRidose)
 end
 
 
-    
-   
-
-    {'comb_03_02', ; ...
-    'comb_03_1', }, ...
-    {'comb_1_1', ; ...
-    'comb_1_02', [0.47, 0.67, 0.19]}};
-
 figure;
 
 subplot(2, 3, 1);
